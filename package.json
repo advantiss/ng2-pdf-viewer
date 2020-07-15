@@ -1,5 +1,5 @@
 {
-  "name": "ng2-pdf-viewer",
+  "name": "@coler-j/ng2-pdf-viewer",
   "version": "6.3.2",
   "description": "Angular 5+ component for rendering PDF",
   "license": "MIT",
@@ -16,10 +16,11 @@
     "packagr": "ng-packagr -p package.json",
     "docs": "ng build --prod --output-path docs --base-href ng2-pdf-viewer && cp ./docs/index.html ./docs/404.html"
   },
+  "publishConfig": { "registry": "https://npm.pkg.github.com/" },
   "private": false,
   "repository": {
     "type": "git",
-    "url": "git+https://vadimdez@github.com/VadimDez/ng2-pdf-viewer.git"
+    "url": "git+https://coler-j@github.com/coler-j/ng2-pdf-viewer.git"
   },
   "keywords": [
     "angular",
@@ -33,9 +34,9 @@
   ],
   "author": "Vadym Yatsyuk <vadym.yatsyuk@gmail.com>",
   "bugs": {
-    "url": "https://github.com/VadimDez/ng2-pdf-viewer/issues"
+    "url": "https://coler-j@github.com/coler-j/ng2-pdf-viewer/issues"
   },
-  "homepage": "https://github.com/VadimDez/ng2-pdf-viewer#readme",
+  "homepage": "https://coler-j@github.com/coler-j/ng2-pdf-viewer#readme",
   "dependencies": {
     "@types/pdfjs-dist": "^2.1.4",
     "pdfjs-dist": "^2.4.456",

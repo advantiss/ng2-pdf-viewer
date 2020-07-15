@@ -1,18 +1,3 @@
-<mat-toolbar color="primary">
-  <mat-toolbar-row>
-    <span class="title">ng2-pdf-viewer</span>
-
-    <span class="description">Angular 5+ Component to render PDF</span>
-
-    <span class="spacer"></span>
-
-    <iframe src="https://ghbtns.com/github-btn.html?user=vadimdez&repo=ng2-pdf-viewer&type=star&count=true"
-      frameborder="0" scrolling="0" width="170px" height="20px"></iframe>
-
-    <a href="https://github.com/vadimdez/ng2-pdf-viewer" mat-raised-button>Get Started</a>
-  </mat-toolbar-row>
-</mat-toolbar>
-
 <mat-drawer-container class="example-container">
   <mat-drawer mode="side" opened>
     <mat-form-field class="mb">
@@ -184,7 +169,7 @@
 
   <mat-drawer-content>
     <pdf-viewer [src]="pdfSrc" [(page)]="page" [rotation]="rotation" [original-size]="originalSize" [show-all]="showAll"
-      [fit-to-page]="fitToPage" (after-load-complete)="afterLoadComplete($event)" [zoom]="zoom" [zoom-scale]="zoomScale" 
+      [fit-to-page]="fitToPage" (after-load-complete)="afterLoadComplete($event)" [zoom]="zoom" [zoom-scale]="zoomScale"
       [stick-to-page]="stickToPage" [render-text]="renderText" [external-link-target]="'blank'"
       [autoresize]="autoresize" (error)="onError($event)" (on-progress)="onProgress($event)"
       (page-rendered)="pageRendered($event)"></pdf-viewer>

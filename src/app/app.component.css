@@ -72,14 +72,6 @@ mat-drawer {
   padding: 12px;
 }
 
-mat-drawer-container {
-  position: absolute;
-  top: 64px;
-  right: 0;
-  bottom: 0;
-  left: 0;
-}
-
 pdf-viewer {
   height: 100%;
 }
