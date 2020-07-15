@@ -16,7 +16,9 @@
     "packagr": "ng-packagr -p package.json",
     "docs": "ng build --prod --output-path docs --base-href ng2-pdf-viewer && cp ./docs/index.html ./docs/404.html"
   },
-  "publishConfig": { "registry": "https://npm.pkg.github.com/" },
+  "publishConfig": {
+    "registry": "https://npm.pkg.github.com/"
+  },
   "private": false,
   "repository": {
     "type": "git",
@@ -39,7 +41,7 @@
   "homepage": "https://coler-j@github.com/coler-j/ng2-pdf-viewer#readme",
   "dependencies": {
     "@types/pdfjs-dist": "^2.1.4",
-    "pdfjs-dist": "^2.4.456",
+    "pdfjs-dist": "2.5.207",
     "tslib": "^1.10.0"
   },
   "devDependencies": {
