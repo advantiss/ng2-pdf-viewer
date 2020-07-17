@@ -45,6 +45,10 @@
       </mat-slide-toggle>
     </div>
 
+    <div class="mb">
+      <button mat-flat-button color="accent" (click)="savePDF()">Save PDF</button>
+    </div>
+
     <mat-form-field *ngIf="!originalSize">
       <mat-label>Select an option</mat-label>
       <mat-select [(value)]="zoomScale">

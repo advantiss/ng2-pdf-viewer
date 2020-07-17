@@ -13,7 +13,8 @@ import {
   HostListener,
   OnDestroy,
   ViewChild,
-  AfterViewChecked
+  AfterViewChecked,
+  Inject
 } from '@angular/core';
 import {
   PDFDocumentProxy,
@@ -25,6 +26,7 @@ import {
 } from 'pdfjs-dist';
 
 import { createEventBus } from '../utils/event-bus-utils';
+import { PDF_CONFIG } from './constants';
 
 let PDFJS: any;
 let PDFJSViewer: any;
@@ -232,7 +234,9 @@ export class PdfViewerComponent
     }
   }
 
-  constructor(private element: ElementRef) {
+  constructor(private element: ElementRef, @Inject(PDF_CONFIG) private config: any) {
+    console.log('config', this.config)
+
     if (isSSR()) {
       return;
     }
@@ -397,6 +401,10 @@ export class PdfViewerComponent
     }
   }
 
+  public async flattenAndSavePDF() {
+
+  }
+
   private setupMultiPageViewer() {
     (PDFJS as any).disableTextLayer = !this._renderText;
 
@@ -437,7 +445,9 @@ export class PdfViewerComponent
       textLayerMode: this._renderText
         ? this._renderTextMode
         : RenderTextMode.DISABLED,
-      findController: this.pdfMultiPageFindController
+      findController: this.pdfMultiPageFindController,
+      annotationLayerFactory: new PDFJSViewer.DefaultAnnotationLayerFactory(),
+      renderInteractiveForms: true
     };
 
     this.pdfMultiPageViewer = new PDFJSViewer.PDFViewer(pdfOptions);

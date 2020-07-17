@@ -213,4 +213,12 @@ export class AppComponent {
       });
     }
   }
+
+  /**
+   * Page action to collect form data to JSON and to finalize / flatten the PDF to base 64 (for local downloading or to send to API.)
+   */
+  async savePDF() {
+    await this.pdfComponent.flattenAndSavePDF();
+  }
+
 }

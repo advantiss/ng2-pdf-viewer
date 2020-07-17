@@ -6,6 +6,7 @@ import { NoopAnimationsModule } from '@angular/platform-browser/animations';
 import { DemoMaterialModule } from './material.module';
 import { PdfViewerModule } from './pdf-viewer/pdf-viewer.module';
 import { AppComponent } from './app.component';
+import { FORM_CONFIGURATION_MAPPING } from './pdf-config/pdf-configuration-mapping.provider';
 
 @NgModule({
   declarations: [AppComponent],
@@ -15,7 +16,7 @@ import { AppComponent } from './app.component';
     NoopAnimationsModule,
     DemoMaterialModule,
 
-    PdfViewerModule
+    PdfViewerModule.forRoot(FORM_CONFIGURATION_MAPPING)
   ],
   providers: [],
   bootstrap: [AppComponent]
