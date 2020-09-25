@@ -23,7 +23,7 @@ import {
   PDFSource,
   PDFProgressData,
   PDFPromise
-} from 'pdfjs-dist';
+} from 'pdfjs-dist/index';
 
 import { createEventBus } from '../utils/event-bus-utils';
 import { PDF_CONFIG } from './constants';
@@ -59,7 +59,7 @@ export enum RenderTextMode {
 })
 export class PdfViewerComponent
   implements OnChanges, OnInit, OnDestroy, AfterViewChecked {
-  @ViewChild('pdfViewerContainer') pdfViewerContainer;
+  @ViewChild('pdfViewerContainer', { static: false }) pdfViewerContainer;
   private isVisible: boolean = false;
 
   static CSS_UNITS: number = 96.0 / 72.0;
@@ -84,7 +84,7 @@ export class PdfViewerComponent
   private _pdf: PDFDocumentProxy;
   private _page = 1;
   private _zoom = 1;
-  private _zoomScale: 'page-height'|'page-fit'|'page-width' = 'page-width';
+  private _zoomScale: 'page-height' | 'page-fit' | 'page-width' = 'page-width';
   private _rotation = 0;
   private _showAll = true;
   private _canAutoResize = true;
@@ -117,7 +117,7 @@ export class PdfViewerComponent
     this._cMapsUrl = cMapsUrl;
   }
 
- @Input('page')
+  @Input('page')
   set page(_page) {
     _page = parseInt(_page, 10) || 1;
     const orginalPage = _page;
@@ -171,7 +171,7 @@ export class PdfViewerComponent
   }
 
   @Input('zoom-scale')
-  set zoomScale(value: 'page-height'|'page-fit' | 'page-width') {
+  set zoomScale(value: 'page-height' | 'page-fit' | 'page-width') {
     this._zoomScale = value;
   }
 
@@ -235,27 +235,12 @@ export class PdfViewerComponent
   }
 
   constructor(private element: ElementRef, @Inject(PDF_CONFIG) private config: any) {
-    console.log('config', this.config)
-
     if (isSSR()) {
       return;
     }
 
-    let pdfWorkerSrc: string;
-
-    if (
-      window.hasOwnProperty('pdfWorkerSrc') &&
-      typeof (window as any).pdfWorkerSrc === 'string' &&
-      (window as any).pdfWorkerSrc
-    ) {
-      pdfWorkerSrc = (window as any).pdfWorkerSrc;
-    } else {
-      pdfWorkerSrc = `https://cdnjs.cloudflare.com/ajax/libs/pdf.js/${
-        (PDFJS as any).version
-      }/pdf.worker.min.js`;
-    }
-
-    (PDFJS as any).GlobalWorkerOptions.workerSrc = pdfWorkerSrc;
+    (PDFJS as any).GlobalWorkerOptions.workerSrc = '../assets/pdf.worker.js';
+    (window as any).pdfWorkerSrc = '../assets/pdf.worker.js';
   }
 
   ngAfterViewChecked(): void {
