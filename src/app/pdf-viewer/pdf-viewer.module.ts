@@ -4,7 +4,7 @@
 import { NgModule, ModuleWithProviders } from '@angular/core';
 
 import { PdfViewerComponent } from './pdf-viewer.component';
-import { PDFJSStatic } from 'pdfjs-dist';
+import { PDFJSStatic } from 'pdfjs-dist/index';
 import { IFormConfiguration } from './interfaces/form-configuration.type';
 import { PDF_CONFIG } from './constants';
 
@@ -20,7 +20,7 @@ export {
   PDFSource,
   PDFProgressData,
   PDFPromise
-} from 'pdfjs-dist';
+} from 'pdfjs-dist/index';
 
 @NgModule({
   declarations: [PdfViewerComponent],
